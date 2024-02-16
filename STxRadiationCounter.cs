@@ -68,7 +68,7 @@ namespace STxUSB
             }
            
             serialPort = new SerialPort(PortName,115200,Parity.None,8,StopBits.One);
-            serialPort.NewLine = "\r\n";   //is the ending the machine is expecting, altough we won't use writeline or getline, we will add this to be shure. but it is not needed.
+            serialPort.NewLine = "\r\n";   //is the ending the machine is expecting, posably used when using readtline, we will add this to be shure. but it is not needed.
             //SerialPort = serial.Serial(port = aPort.device, baudrate = 115200, bytesize = 8, parity = "N", stopbits = 1,timeout = None, xonxoff = False, rtscts = False, write_timeout = None, dsrdtr = False, inter_byte_timeout = None, exclusive = None)
         }
 
