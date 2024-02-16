@@ -42,7 +42,6 @@ namespace STxUSB
         // Define the VID and PID of the USB device you want to find  0403:6001
         public readonly int vid = 0x12AB;
         public readonly int pid = 0x0001;
-        private readonly byte[] newlineBytes = new byte[] { 13, 10 };
         private readonly Mutex mutex = new Mutex(); //to ensure serialization on com port use
         public readonly string PortName;
         private SerialPort serialPort;
@@ -68,7 +67,7 @@ namespace STxUSB
             }
            
             serialPort = new SerialPort(PortName,115200,Parity.None,8,StopBits.One);
-            serialPort.NewLine = "\r\n";   //is the ending the machine is expecting, posably used when using readtline, we will add this to be shure. but it is not needed.
+            serialPort.NewLine = "\r";   //(could be \r\n) is the ending the machine is expecting, posably used when using readtline, we will add this to be shure. but it is not needed.
             //SerialPort = serial.Serial(port = aPort.device, baudrate = 115200, bytesize = 8, parity = "N", stopbits = 1,timeout = None, xonxoff = False, rtscts = False, write_timeout = None, dsrdtr = False, inter_byte_timeout = None, exclusive = None)
         }
 
@@ -174,7 +173,6 @@ namespace STxUSB
 
         public void SendData(byte[] data)   // Method for sending byte data over serialport
         {
-            data = Combine(data, newlineBytes); //concatinade end of line bytes for the device to understand end of command
             mutex.WaitOne(); // wait until no other thread uses serialport.write
             try
             {   OpenSerialPort();
@@ -226,89 +224,96 @@ namespace STxUSB
 
 
 
-        public static byte[] Combine(byte[] one, byte[] twoo) //concatinate twoo byte array's, TODO: where to put this function? is this the correct class or place?
-        {
-            byte[] result = new byte[one.Length + twoo.Length];
-            Buffer.BlockCopy(one, 0, result, 0, one.Length);
-            Buffer.BlockCopy(twoo, 0, result, one.Length, twoo.Length);
-            return result;
-        }
-
-
-
+//Todo: process: note: commands should not be stacked or sent without waiting for the appropriate response. otherwise the system will experience communication collisions. 
         public string reset_device_00()
         {
+            SendString(">00\r");
+            todo, implement a wait and ReceiveData check untill a cr is receaved. (ask ai)
             return "";
         }
 
 
         public string start_counter_01()
         {
+            SendString(">01\r");
             return "";
         }
 
         public string stop_counter_02()
         {
+            SendString(">02\r");
             return "";
         }
 
         public string request_status_03()
         {
+            SendString(">03\r");
             return "";
         }
 
         public string request_counts_04()
         {
+            SendString(">04\r");
             return "";
         }
 
         public string request_parameters_05()
         {
+            SendString(">05\r");
             return "";
         }
 
         public string request_system_parameters_06()
         {
+            SendString(">06\r");
             return "";
         }
 
         public string store_current_parameters_07()
         {
+            SendString(">07\r");
             return "";
         }
 
         public string start_demo_counter_08()
         {
+            SendString(">08\r");
             return "";
         }
 
         public string high_voltage_on_12()
         {
+            SendString(">12\r");
             return "";
         }
 
         public string high_voltage_off_13()
         {
+            SendString(">13\r");
             return "";
         }
 
         public string high_voltage_onewire_on_14()
         {
+            SendString(">14\r");
             return "";
         }
 
         public string high_voltage_onewire_off_15()
         {
+            SendString(">15\r");
             return "";
         }
 
         public string request_high_voltage_status_16()
         {
+            SendString(">16\r");
             return "";
         }
 
         public string read_high_voltage_data_17()
         {
+            SendString(">17\r");
             return "";
         }
 
