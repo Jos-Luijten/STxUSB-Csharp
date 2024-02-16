@@ -27,11 +27,9 @@ Noteworthy dependencies:
 
 
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO.Ports;
-using Microsoft.Win32;
+using System.IO.Ports; //unnessisary, indicating this is used by stxradiationcounter class (not in this file)
+using Microsoft.Win32; //unnessisary, indicating this is used by stxradiationcounter class (not in this file)
+using System.Text;     //unnessisary, indicating this is used by stxradiationcounter class (not in this file)
 
 
 
