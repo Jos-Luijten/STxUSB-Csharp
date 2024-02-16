@@ -12,8 +12,8 @@ This script was, created for, and tested on:
 This script was created by:
     Jos Luijten (j.luijten87@gmail.com)
     A version of this script was written in C# and in Python
-    C# in Git-repository: 
-    Python in Git-repository: 
+    C# in Git-repository:       https://github.com/Jos-Luijten/STxUSB-Csharp
+    Python in Git-repository:   https://github.com/Jos-Luijten/STxUSB-Python
 
 This scripts goals to achieve:
     - autodetection and confirmation of device on port, on Windows and Linux Debian
