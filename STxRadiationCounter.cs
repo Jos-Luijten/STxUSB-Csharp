@@ -69,6 +69,8 @@ namespace STxUSB
             serialPort = new SerialPort(PortName,115200,Parity.None,8,StopBits.One);
             serialPort.NewLine = "\r";   //(could be \r\n) is the ending the machine is expecting, posably used when using readtline, we will add this to be shure. but it is not needed.
             serialPort.Encoding = System.Text.Encoding.ASCII;
+            serialPort.WriteTimeout = 1000; // 1 second, 
+            serialPort.ReadTimeout = 1000; // 1 second,
             //SerialPort = serial.Serial(port = aPort.device, baudrate = 115200, bytesize = 8, parity = "N", stopbits = 1,timeout = None, xonxoff = False, rtscts = False, write_timeout = None, dsrdtr = False, inter_byte_timeout = None, exclusive = None)
         }
 
@@ -165,14 +167,14 @@ namespace STxUSB
 
 
 
-        public void SendString(string text)
+        private void SendString(string text)
         {
             SendData(Encoding.ASCII.GetBytes(text));
         }
 
 
 
-        public void SendData(byte[] data)   // Method for sending byte data over serialport
+        private void SendData(byte[] data)   // Method for sending byte data over serialport
         {
             mutex.WaitOne(); // wait until no other thread uses serialport.write
             try
@@ -188,7 +190,7 @@ namespace STxUSB
 
 
 
-        public string ReadLine()
+        private string ReadLine()
         {
             mutex.WaitOne(); // wait until no other thread uses serialport.write
             try
@@ -206,7 +208,7 @@ namespace STxUSB
 
 
 
-        public byte[] ReceiveData(int bytesToRead)  // Methode voor het ontvangen van data
+        private byte[] ReceiveData(int bytesToRead)  // Methode voor het ontvangen van data
         {
             mutex.WaitOne(); // wait until no other thread uses serialport.write
             try
@@ -224,99 +226,96 @@ namespace STxUSB
         }
 
 
+        // combine sendstring and readline functions, to enforce waiting on return value. 
+        // note from documentation: commands should not be stacked or sent without waiting for the appropriate response. otherwise the system will experience communication collisions. 
+        private string send_command(string command)
+        {
+            SendString(">"+command+"\r");
+            string result;
+            try{
+                result = ReadLine();
+            }catch(Exception e){ //most likeley timeout error, timout amount is set in initialisation of this stx object..
+                result = "ERROR on "+command+": "+e.Message;
+            }
+            return result;
+        }
 
-//Todo: process: note: commands should not be stacked or sent without waiting for the appropriate response. otherwise the system will experience communication collisions. 
+
+
         public string reset_device_00()
         {
-            SendString(">00\r");
-
-            //todo, implement a wait and ReceiveData check untill a cr is receaved. (ask ai)
-            return "";
+            return send_command("00");
         }
 
 
         public string start_counter_01()
         {
-            SendString(">01\r");
-            return "";
+            return send_command("01");
         }
 
         public string stop_counter_02()
         {
-            SendString(">02\r");
-            return "";
+            return send_command("02");
         }
 
         public string request_status_03()
         {
-            SendString(">03\r");
-            return "";
+            return send_command("03");
         }
 
         public string request_counts_04()
         {
-            SendString(">04\r");
-            return "";
+            return send_command("04");
         }
 
         public string request_parameters_05()
         {
-            SendString(">05\r");
-            return "";
+            return send_command("05");
         }
 
         public string request_system_parameters_06()
         {
-            SendString(">06\r");
-            return "";
+            return send_command("06");
         }
 
         public string store_current_parameters_07()
         {
-            SendString(">07\r");
-            return "";
+            return send_command("07");
         }
 
         public string start_demo_counter_08()
         {
-            SendString(">08\r");
-            return "";
+            return send_command("08");
         }
 
         public string high_voltage_on_12()
         {
-            SendString(">12\r");
-            return "";
+            return send_command("12");
         }
 
         public string high_voltage_off_13()
         {
-            SendString(">13\r");
-            return "";
+            return send_command("13");
         }
 
         public string high_voltage_onewire_on_14()
         {
-            SendString(">14\r");
-            return "";
+            return send_command("14");
         }
 
         public string high_voltage_onewire_off_15()
         {
-            SendString(">15\r");
-            return "";
+            return send_command("15");
         }
 
         public string request_high_voltage_status_16()
         {
-            SendString(">16\r");
-            return "";
+            return send_command("16");
         }
 
         public string read_high_voltage_data_17()
         {
-            SendString(">17\r");
-            return "";
+            return send_command("17");
         }
 
     }
