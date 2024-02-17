@@ -68,6 +68,7 @@ namespace STxUSB
            
             serialPort = new SerialPort(PortName,115200,Parity.None,8,StopBits.One);
             serialPort.NewLine = "\r";   //(could be \r\n) is the ending the machine is expecting, posably used when using readtline, we will add this to be shure. but it is not needed.
+            serialPort.Encoding = System.Text.Encoding.ASCII;
             //SerialPort = serial.Serial(port = aPort.device, baudrate = 115200, bytesize = 8, parity = "N", stopbits = 1,timeout = None, xonxoff = False, rtscts = False, write_timeout = None, dsrdtr = False, inter_byte_timeout = None, exclusive = None)
         }
 
@@ -228,7 +229,8 @@ namespace STxUSB
         public string reset_device_00()
         {
             SendString(">00\r");
-            todo, implement a wait and ReceiveData check untill a cr is receaved. (ask ai)
+
+            //todo, implement a wait and ReceiveData check untill a cr is receaved. (ask ai)
             return "";
         }
 

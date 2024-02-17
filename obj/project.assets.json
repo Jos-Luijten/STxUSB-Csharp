@@ -231,9 +231,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\My Drive\\Projecten en Hobbys\\ST radiation counter com with csharp\\STxUSB-Csharp\\STxUSB-Cscharp.csproj",
+      "projectUniqueName": "G:\\My Drive\\Projecten en Hobbys\\ST radiation counter com with csharp\\STxUSB-Csharp\\STxUSB-CSharp.csproj",
       "projectName": "STxUSB",
-      "projectPath": "G:\\My Drive\\Projecten en Hobbys\\ST radiation counter com with csharp\\STxUSB-Csharp\\STxUSB-Cscharp.csproj",
+      "projectPath": "G:\\My Drive\\Projecten en Hobbys\\ST radiation counter com with csharp\\STxUSB-Csharp\\STxUSB-CSharp.csproj",
       "packagesPath": "C:\\Users\\31610\\.nuget\\packages\\",
       "outputPath": "G:\\My Drive\\Projecten en Hobbys\\ST radiation counter com with csharp\\STxUSB-Csharp\\obj\\",
       "projectStyle": "PackageReference",
