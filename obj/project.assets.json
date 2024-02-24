@@ -226,19 +226,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\31610\\.nuget\\packages\\": {}
+    "C:\\Users\\Luij\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\My Drive\\Projecten en Hobbys\\ST radiation counter com with csharp\\STxUSB-Csharp\\STxUSB-CSharp.csproj",
+      "projectUniqueName": "C:\\Users\\Luij\\OneDrive - Montessori College\\Documenten\\GitHub\\STxUSB-Csharp\\STxUSB-Csharp.csproj",
       "projectName": "STxUSB",
-      "projectPath": "G:\\My Drive\\Projecten en Hobbys\\ST radiation counter com with csharp\\STxUSB-Csharp\\STxUSB-CSharp.csproj",
-      "packagesPath": "C:\\Users\\31610\\.nuget\\packages\\",
-      "outputPath": "G:\\My Drive\\Projecten en Hobbys\\ST radiation counter com with csharp\\STxUSB-Csharp\\obj\\",
+      "projectPath": "C:\\Users\\Luij\\OneDrive - Montessori College\\Documenten\\GitHub\\STxUSB-Csharp\\STxUSB-Csharp.csproj",
+      "packagesPath": "C:\\Users\\Luij\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Luij\\OneDrive - Montessori College\\Documenten\\GitHub\\STxUSB-Csharp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\31610\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Luij\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -256,6 +256,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -278,12 +283,30 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.16, 7.0.16]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[7.0.16, 7.0.16]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.16, 7.0.16]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[7.0.16, 7.0.16]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

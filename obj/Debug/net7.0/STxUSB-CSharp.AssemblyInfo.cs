@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("STxUSB")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8f80f36dfbb20d4969f45eb6a777de246d96587")]
 [assembly: System.Reflection.AssemblyProductAttribute("STxUSB")]
 [assembly: System.Reflection.AssemblyTitleAttribute("STxUSB")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
